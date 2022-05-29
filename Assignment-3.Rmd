@@ -1,0 +1,29 @@
+---
+title: "Assignment 3"
+author: "Dylan Renaud, Srikrishnan Ramachandran,Fezan Mukhtar"
+date: '2022-05-29'
+output: html_document
+---
+
+```{r, Question 1}
+#1. Read in the file, making the gene identifiers the row names. Show a table of values for the first six genes
+
+URL<- "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/gene_expression.tsv"
+
+download.file(URL,destfile="gene_expression")
+
+read.table(URL)
+
+
+data<-read.table(URL)
+data<-read.table(URL,stringsAsFactors=FALSE, header=TRUE)
+
+data<-read.table(URL,stringsAsFactors=FALSE, header=TRUE, row.names=1)
+head(data)
+str(data)
+rownames(data)
+grep("ENG",rownames(data))
+data[1:6,]
+rownames(data[1:6,])
+
+```
