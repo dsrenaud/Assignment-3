@@ -29,3 +29,12 @@ data[1:6,]
 rownames(data[1:6,])
 
 ```
+
+```{r, Question2}
+#Question 2
+ncol(data)
+rowMeans(data)
+Mean<-rowMeans(data)
+Mean
+data$Mean<-Mean
+```
