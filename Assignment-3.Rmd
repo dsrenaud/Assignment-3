@@ -8,7 +8,7 @@ output: html_document
 ---
 
 ```{r, Question 1}
-#1. Read in the file, making the gene identifiers the row names. Show a table of values for the first six genes
+# Question 1. Read in the file, making the gene identifiers the row names. Show a table of values for the first six genes
 
 URL<- "https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/gene_expression.tsv"
 
@@ -30,8 +30,8 @@ rownames(data[1:6,])
 
 ```
 
-```{r, Question2}
-#Question 2
+```{r,Question2}
+#Question 2: Make a new column which is the mean of the other columns. Show a table of values for the first six genes.
 ncol(data)
 rowMeans(data)
 Mean<-rowMeans(data)
