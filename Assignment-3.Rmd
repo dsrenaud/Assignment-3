@@ -50,3 +50,155 @@ dt<-data[which(data$Mean<10),]
 nrow(dt)
 
 ```
+
+
+
+
+
+
+
+
+```{r, Question 6}
+url="https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/growth_data.csv"
+read.table(url,sep = ",",header=TRUE,)
+inf<-read.table(url,sep = ",",header=TRUE,)
+head(inf)
+colnames(inf)
+```
+
+```{r, question 8}
+#Question 8:Make a box plot of tree circumferance at the start and end of the study of both sites.
+
+site<-inf$Site
+site
+rownames(inf)
+colnames(inf)
+ne<-grep("northeast",inf$Site)
+ne
+sw<-grep("southwest",inf$Site)
+sw
+ne2020<-inf[ne,6]
+ne2020
+ne2005<-inf[ne,3]
+ne2005
+sw2020<-inf[sw,6]
+sw2020
+sw2005<-inf[sw,3]
+sw2005
+boxplot(ne2005,ne2020,sw2005,sw2020, ylab="Tree circumference",main="Growth measurements", at=c(1,2,3,4),
+        names =c("northeast 2005","northeast 2020","southwest 2005","southwest 2020"))
+```
+
+
+```{r,(2) Question 4}
+#Question 4:Create a codon usage table and quantify the codon usage bias among all coding sequences. Describe
+#any differences between the two organisms with respect to their codon usage bias. Provide charts to
+#support your observations.
+
+
+#E coli
+uco(cds[[2]],index="rscu",as.data.frame=TRUE)
+ecodon<-uco(cds[[2]],index="rscu",as.data.frame=TRUE)
+
+ecodon %>%
+  kbl() %>%
+  kable_paper("hover",full_width=F)
+
+lowbias<-ecodon[order(ecodon$freq),]
+lowbiass<-lowbias[1:6,4,drop=FALSE]
+
+lowbiass%>%
+  kbl()%>%
+  kable_paper("hover",full_width=F)  
+
+highb<-ecodon[order(-ecodon$freq),]
+highbias<-highb[1:6,4,drop=FALSE]
+
+highbias%>%
+  kbl()%>%
+  kable_paper("hover",full_width=F)  
+ 
+#anaerococcus
+uco(an[[2]],index="rscu",as.data.frame=TRUE)
+acodon<-uco(an[[2]],index="rscu",as.data.frame=TRUE)
+
+acodon %>%
+  kbl() %>%
+  kable_paper("hover",full_width=F)
+
+alowbias<-acodon[order(acodon$freq),]
+alowbiass<-alowbias[1:6,4,drop=FALSE]
+
+alowbiass%>%
+  kbl()%>%
+  kable_paper("hover",full_width=F)  
+
+higha<-acodon[order(-acodon$freq),]
+highbiasa<-higha[1:6,4,drop=FALSE]
+
+highbiasa%>%
+  kbl()%>%
+  kable_paper("hover",full_width=F)
+```
+
+
+```{r, Question 5}
+#Question 5: In the organism of interest, identify 10 protein sequence k-mers of length 3-5 which are the most over and under-represented k-mers in your organism of interest. Are these k-mers also over- and
+#under-represented in E. coli to a similar extent? Provide plots to support your observations. Why do
+#you think these sequences are present at different levels in the genomes of these organisms?
+
+pro<-unlist(prot)
+anpro<-unlist(anprot)
+count(pro,alphabet= aa,wordsize=3, freq=TRUE)
+
+#3
+ecomp3<-count(pro,alphabet= aa,wordsize=3, freq=TRUE)
+eoverep3<-head(sort(ecomp3,decreasing=TRUE),n=10L)
+eoverep3
+eunderep3<-head(sort(ecomp3,decreasing=TRUE),n=10L)
+eunderep3
+
+acomp3<-count(anpro,alphabet= aa,wordsize=3, freq=TRUE)
+acomp3
+aoverep3<-head(sort(acomp3,decreasing=TRUE),n=10L)
+aoverep3
+aunderep3<-head(sort(acomp3,decreasing=TRUE),n=10L)
+aunderep3
+
+#4
+
+ecomp4<-count(pro,alphabet= aa,wordsize=4, freq=TRUE)
+eoverep4<-head(sort(ecomp4,decreasing=TRUE),n=10L)
+eoverep4
+eunderep4<-head(sort(ecomp4,increasing=TRUE),n=10L)
+eunderep4
+
+acomp4<-count(anpro,alphabet= aa,wordsize=4, freq=TRUE)
+acomp4
+aoverep4<-head(sort(acomp4,decreasing=TRUE),n=10L)
+aoverep4
+aunderep4<-head(sort(acomp4,decreasing=TRUE),n=10L)
+aunderep4
+
+#5
+acomp5<-count(anpro,alphabet= aa,wordsize=5, freq=TRUE)
+acomp5
+aoverep5<-head(sort(acomp5,decreasing=TRUE),n=10L)
+aoverep5
+aunderep5<-head(sort(acomp5,increasing=TRUE),n=10L)
+aunderep5
+
+ecomp5<-count(pro,alphabet= aa,wordsize=5,freq=TRUE)
+ecomp5
+eoverep5<-head(sort(ecomp5,decreasing=TRUE),n=10L)
+eoverep5
+eunderep5<-head(sort(ecomp5,increasing=TRUE),n=10L)
+eunderep5
+
+eoverep5[c(160165e-04, 6.629514e-05, 6.215169e-05, 6.007997e-05, 5.386480e-05,
+         5.386480e-05, 4.764963e-05, 4.764963e-05,4.764963e-05, 4.557791e-05)]
+eoverep5==aoverep5
+
+eunderep5==aunderep5
+
+```
