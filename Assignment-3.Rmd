@@ -1,6 +1,8 @@
 ---
 title: "Assignment 3"
+
 author: "Dylan Renaud, Srikrishnan Ramachandran,Fezan Mukhtar"
+
 date: '2022-05-29'
 output: html_document
 ---
@@ -27,3 +29,5 @@ data[1:6,]
 rownames(data[1:6,])
 
 ```
+
+
