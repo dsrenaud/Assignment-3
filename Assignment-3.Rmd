@@ -38,3 +38,15 @@ Mean<-rowMeans(data)
 Mean
 data$Mean<-Mean
 ```
+
+
+
+```{r, Question 4}
+#Question 4
+data$Mean<10
+which(data$Mean<10)
+data[which(data$Mean<10),]
+dt<-data[which(data$Mean<10),]
+nrow(dt)
+
+```
