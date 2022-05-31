@@ -1,6 +1,10 @@
 ---
 title: "Assignment 3"
+<<<<<<< HEAD
 author: "Dylan Renaud, Srikrishnan Ramachandran,Fezan Mukhtar"
+=======
+author: "DR"
+>>>>>>> 1f2ce06fb996fd00c4eb09e47cdc9b91b494230c
 date: '2022-05-29'
 output: html_document
 ---
