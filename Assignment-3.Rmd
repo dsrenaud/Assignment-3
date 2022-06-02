@@ -26,7 +26,6 @@ str(data)
 rownames(data)
 grep("ENG",rownames(data))
 data[1:6,]
-rownames(data[1:6,])
 
 ```
 
@@ -37,8 +36,26 @@ rowMeans(data)
 Mean<-rowMeans(data)
 Mean
 data$Mean<-Mean
+head(data)
+#First six genes
+data[1:6,]
+
 ```
+
+
+
+
+
 ```{r,Question3}
+# Question 3: list 10 genes with the highest mean expression.
+order(data)
+order(data$Mean)
+data$Mean
+data[order(data$Mean),]
+data[order(-data$Mean),]
+revsort<-data[order(-data$Mean),]
+revsort[1:10,c(4,ncol(revsort))]
+revsort[1:10,]
 
 
 
