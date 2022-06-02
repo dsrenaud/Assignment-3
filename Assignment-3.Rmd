@@ -38,6 +38,11 @@ Mean<-rowMeans(data)
 Mean
 data$Mean<-Mean
 ```
+
+
+
+
+
 ```{r,Question3}
 
 
