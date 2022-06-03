@@ -77,6 +77,23 @@ head(inf)
 colnames(inf)
 ```
 
+```{r, Question7}
+#Question 7
+meanstart<-mean(inf$Circumf_2005_cm)
+meanstart
+sdstart<-sd(inf$Circumf_2005_cm)
+sdstart
+meanend<-mean(inf$Circumf_2020_cm)
+meanend
+sdend<-sd(inf$Circumf_2020_cm)
+sdend
+
+```
+
+
+
+
+
 ```{r, question 8}
 #Question 8:Make a box plot of tree circumferance at the start and end of the study of both sites.
 
