@@ -117,8 +117,6 @@ sdend
 
 site<-inf$Site
 site
-rownames(inf)
-colnames(inf1)
 ne<-grep("northeast",inf$Site)
 ne
 sw<-grep("southwest",inf$Site)
