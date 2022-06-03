@@ -127,6 +127,34 @@ pval <- rest.test$p.value
 pval
 ```
 
+
+```{r, Question2(Part 2)}
+#Question 2:
+#E. coli
+
+head(summary(cds))
+str(summary(cds))
+head(summary(cds))[,1]
+ecol<-as.numeric(summary(cds)[,1])
+sum(ecol)
+
+#Anaerococcus
+head(summary(an))
+str(summary(an))
+head(summary(an))[,1]
+anna<-as.numeric(summary(an)[,1])
+summary(an)
+sum(anna)
+#sum=2011938
+boxplot(anna,ecol)
+boxplot((anna),(ecol), ylab="Sequence length",
+        main="Comparison of sequnce length between E. coli and anaerococcus",
+        names =c( "anaerococcus","E. coli"))
+
+```
+
+
+
 ```{r,(2) Question 4}
 #Question 4:Create a codon usage table and quantify the codon usage bias among all coding sequences. Describe
 #any differences between the two organisms with respect to their codon usage bias. Provide charts to
