@@ -155,8 +155,6 @@ mean_2010 <- mean(inf$Circumf_2010_cm)
  
  Growth_rate <- mean_2020 - mean_2010 
  Growth_rate
-
-
 ```
 
 ```{r, Question10}
