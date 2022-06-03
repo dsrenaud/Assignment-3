@@ -43,6 +43,9 @@ data[1:6,]
 ```
 
 
+
+
+
 ```{r,Question3}
 # Question 3: list 10 genes with the highest mean expression.
 order(data)
@@ -53,6 +56,10 @@ data[order(-data$Mean),]
 revsort<-data[order(-data$Mean),]
 revsort[1:10,c(4,ncol(revsort))]
 revsort[1:10,]
+
+
+
+
 
 ```
 
@@ -67,16 +74,12 @@ nrow(dt)
 
 ```
 
-```{r, Question5}
-#Question5: Make a histogram plot of the mean values and include it into your report.
-as.matrix(data$Mean)
-dmat<-as.matrix(data$Mean)
-dmat
-hist(data$Mean,xlab = "Mean values",main = "Mean of gene expressions")
-hist(dmat,xlab = "Mean values",main = "Mean of gene expressions", breaks = 100)
-range(data)
 
-```
+
+
+
+
+
 
 ```{r, Question 6}
 url="https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/growth_data.csv"
@@ -87,7 +90,7 @@ colnames(inf)
 ```
 
 ```{r, Question7}
-#Question 7
+#Question 7: Calculate the mean and standard deviation of tree circumference at the start and end of the study at both sites.
 meanstart<-mean(inf$Circumf_2005_cm)
 meanstart
 sdstart<-sd(inf$Circumf_2005_cm)
