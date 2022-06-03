@@ -65,7 +65,7 @@ revsort[1:10,]
 
 
 ```{r, Question 4}
-#Question 4 
+#Question 4:Determine the number of genes with a mean <10
 data$Mean<10
 which(data$Mean<10)
 data[which(data$Mean<10),]
@@ -89,6 +89,23 @@ head(inf)
 colnames(inf)
 ```
 
+```{r, Question7}
+#Question 7
+meanstart<-mean(inf$Circumf_2005_cm)
+meanstart
+sdstart<-sd(inf$Circumf_2005_cm)
+sdstart
+meanend<-mean(inf$Circumf_2020_cm)
+meanend
+sdend<-sd(inf$Circumf_2020_cm)
+sdend
+
+```
+
+
+
+
+
 ```{r, question 8}
 #Question 8:Make a box plot of tree circumferance at the start and end of the study of both sites.
 
@@ -111,6 +128,43 @@ sw2005
 boxplot(ne2005,ne2020,sw2005,sw2020, ylab="Tree circumference",main="Growth measurements", at=c(1,2,3,4),
         names =c("northeast 2005","northeast 2020","southwest 2005","southwest 2020"))
 ```
+
+```{r, Question10}
+#Question 10
+head(t.test(meangrowthsw,meangrowthne))
+diff1<-ne2020-ne2010
+diff2<-sw2020-sw2010
+rest.test<-t.test(diff1, diff2)
+pval <- rest.test$p.value
+pval
+```
+
+
+```{r, Question2(Part 2)}
+#Question 2:
+#E. coli
+
+head(summary(cds))
+str(summary(cds))
+head(summary(cds))[,1]
+ecol<-as.numeric(summary(cds)[,1])
+sum(ecol)
+
+#Anaerococcus
+head(summary(an))
+str(summary(an))
+head(summary(an))[,1]
+anna<-as.numeric(summary(an)[,1])
+summary(an)
+sum(anna)
+#sum=2011938
+boxplot(anna,ecol)
+boxplot((anna),(ecol), ylab="Sequence length",
+        main="Comparison of sequnce length between E. coli and anaerococcus",
+        names =c( "anaerococcus","E. coli"))
+
+```
+
 
 
 ```{r,(2) Question 4}
