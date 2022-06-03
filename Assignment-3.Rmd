@@ -197,12 +197,15 @@ pval2
  download.file(URL,destfile="anaero_cds.fa.gz")
  gunzip("anaero_cds.fa.gz")
  list.files()
- cds1 <- seqinr::read.fasta("anaero_cds.fa")
- str(head(cds1))
- length(cds1)
+ an <- seqinr::read.fasta("anaero_cds.fa")
+ str(head(an))
+ length(an)
+ len2 <- as.numeric(summary(an)[,1])
+ sum(len2)
+ 
  #how much coding sequece
- count(cds1[[1]],3)
- sum(sapply(cds1[1:3], length))
+ count(an[[1]],3)
+ sum(sapply(an[1:3], length))
  ##ANS: 397909
 
 
@@ -234,7 +237,106 @@ boxplot((anna),(ecol), ylab="Sequence length",
 
 ```
 
+```{r, Question3(Part2)}
 
+#Question 3: Calculate the frequency of DNA bases in the total coding sequences for both organisms. Perform the same calculation for the total protein sequence. Create bar plots for nucleotide and amino acid frequency. Describe any differences between the two organisms.
+ 
+                                                                #E.coli
+ 
+ cds[[1]]
+ count(cds[[1]],wordsize = 1)
+ 
+ ecodna <- unlist(cds)
+ 
+ ecodna
+ 
+ count(ecodna,wordsize=1)
+ #frequency of DNA bases
+ ##Ans:  a       c       g       t 
+ #     955768  977594 1088501  956665 
+ 
+ ecolidna<-count(ecodna , wordsize=1)
+ barplot(ecolidna,xlab="nucleotide",ylab="frequency",main="E.coli nucleotide composition")
+ 
+ 
+ #protein sequence
+ translate(cds[[1]])
+ 
+ prot<-lapply(X=cds,FUN=translate)
+ prot
+ 
+ aa<-unique(prot[[2]])
+ aa<-aa[aa !="*"]
+ 
+ aa
+ str(cds[[1]])
+ 
+ unlist(prot)
+ head(unlist(prot))
+ pro<-unlist(prot)
+ 
+ prot_composition<-count(pro,alphabet=aa,wordsize=1)
+ prot_composition
+ 
+ #Amino acid frequency
+ 
+ ## A      C      D      E      F      G      H      I      K      L      M      N      P      Q      R      S      T      V      W 
+#  126127  15376  67796  76338  51561  97246  29995  79511  58113 141731  37007  51503  58700  58799  73111  76412  71025  93989  20196 
+#   Y 
+# 37401 
+ 
+ barplot(prot_composition,xlab="Amino acid",ylab="Frequency",main="E-coli Amino acid composition")
+ 
+ 
+                                                # #Anaerococcus Tetradius
+ 
+ #DNA Bases Frequency
+ 
+ an[[1]]
+ count(an[[1]],wordsize = 1)
+ 
+ ## a     c     g     t 
+ # 51728 28420 28258 50859 
+ 
+ unlist(an)
+ andna<-(unlist(an))
+ 
+ 
+ dna_composition2 <- count(andna,wordsize = 1)
+ barplot(dna_composition2, xlab = "nucleotide", ylab="frequency", main="Anaerococcus DNA bases")
+ 
+ 
+ #Amino acid Frequency
+ translate(an[[1]])
+ 
+ anprot <- lapply(X = cds1,FUN = translate)
+ 
+ anprot[[1]]
+ 
+ unique(an[[2]])
+ 
+ aa<- unique(anprot[[2]])
+ 
+ aa <-aa[aa !="*"]
+ 
+ count(anprot[[1]],alphabet = aa,wordsize = 1)
+ 
+ 
+ unlist(anprot)
+ head(unlist(anprot))
+ anpro=unlist(anprot)
+ anprot_composition <- count(anpro, alphabet = aa, wordsize = 1)
+ anprot_composition
+ 
+ #Amino acid frequency
+  #A     C     D     E     F     G     H     I     K     L     M     N     P     Q     R     S     T     V     W     Y 
+#23501 15325 18928 21568 45238 24011 15000 56690 50242 78765 11184 30809 25483 20766 35387 60696 27574 26402  8394 30029 
+ 
+ barplot(anprot_composition, xlab = "Amino acids", ylab="Frequency", main="A. tetradius Amino acid composition")
+
+
+
+```
 
 ```{r,(2) Question 4}
 #Question 4:Create a codon usage table and quantify the codon usage bias among all coding sequences. Describe
