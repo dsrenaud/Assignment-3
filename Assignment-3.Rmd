@@ -147,9 +147,14 @@ boxplot(ne2005,ne2020,sw2005,sw2020, ylab="Tree circumference",main="Growth meas
 ```
 
 ```{r, Question9}
-
-
-
+mean_2010 <- mean(inf$Circumf_2010_cm)
+ mean_2010
+ 
+ mean_2020 <- mean(inf$Circumf_2020_cm)
+ mean_2020
+ 
+ Growth_rate <- mean_2020 - mean_2010 
+ Growth_rate
 
 
 ```
