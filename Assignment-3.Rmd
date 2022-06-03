@@ -42,11 +42,8 @@ data[1:6,]
 
 ```
 
-
-
-
-
 ```{r,Question3}
+
 # Question 3: list 10 genes with the highest mean expression.
 order(data)
 order(data$Mean)
@@ -57,12 +54,7 @@ revsort<-data[order(-data$Mean),]
 revsort[1:10,c(4,ncol(revsort))]
 revsort[1:10,]
 
-
-
-
-
 ```
-
 
 ```{r, Question 4}
 #Question 4:Determine the number of genes with a mean <10
@@ -108,20 +100,6 @@ sdend
 
 ```
 
-
-```{r,Q9}
-#Question 9 Calculate the mean growth over the last 10 years at each site.
-mean_2010 <- mean(inf$Circumf_2010_cm)
- mean_2010
- 
- mean_2020 <- mean(inf$Circumf_2020_cm)
- mean_2020
- 
- Growth_rate <- mean_2020 - mean_2010 
- Growth_rate
- 
- 
-```
  
 ```{r, question 8}
 #Question 8:Make a box plot of tree circumferance at the start and end of the study of both sites.
@@ -172,7 +150,7 @@ pval2
 
 
                                                             #PART2
-                                                          
+                                                            
 ```{r, Question1}
 
 #Question 1 Download the whole set of coding DNA sequences for E. coli and your organism of interest. How many coding sequences are present in these organisms? How much coding DNA is there in total for these two organisms? Describe any differences between the two organisms.
@@ -192,8 +170,11 @@ cds <- seqinr::read.fasta("ecoli_cds.fa")
 str(head(cds))
 length(cds)
 head(summary(cds)[,1])
+cds[,1]
 len <- as.numeric(summary(cds)[,1])
+len
 sum(len)
+#Lenght= 4239
 
 #how much coding sequences
 count(cds[[1]],3)
@@ -207,18 +188,15 @@ URL="http://ftp.ensemblgenomes.org/pub/release-53/bacteria//fasta/bacteria_12_co
 download.file(URL,destfile="anaero_cds.fa.gz")
 gunzip("anaero_cds.fa.gz")
 list.files()
-cds1 <- seqinr::read.fasta("anaero_cds.fa")
-str(head(cds1))
-length(cds1)
+an <- seqinr::read.fasta("anaero_cds.fa")
+str(head(an))
+length(an)
  #how much coding sequece
-count(cds1[[1]],3)
-sum(sapply(cds1[1:3], length))
+count(an[[1]],3)
+sum(sapply(an[1:3], length))
 ##ANS: 397909
 
-
-
 ```
-
 
 ```{r, Question2(Part 2)}
 #Question 2:
@@ -247,7 +225,9 @@ boxplot((anna),(ecol), ylab="Sequence length",
 
 
 
-```{r,(2) Question 4}
+
+
+```{r, Question4}
 #Question 4:Create a codon usage table and quantify the codon usage bias among all coding sequences. Describe
 #any differences between the two organisms with respect to their codon usage bias. Provide charts to
 #support your observations.
