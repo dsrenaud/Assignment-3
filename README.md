@@ -37,7 +37,7 @@ Question 4: Using "uco" for the codon count to make the function "uco(cds[[2]],i
   
   "%>%
   kbl() %>%
-  kable_paper("hover",full_width=F)" in order to produce a codon table arranged in order of ascending frequency.The same steps were taken to obtain a higher frequency bias but the function ecodon "[order(-ecodon$freq),]" (assigned as highb) was used. the "-" placed before ecodon transforms the function i such a way that the resulting table from kableExtra was arranged in descending order instead starting with the largest frequencies first then going down to the smallest.
+  kable_paper("hover",full_width=F)" in order to produce a codon table arranged in order of ascending frequency. Note: %>% is know as the forward pipe operator in R and chains commands with the next forward pipe operatot. The same steps were taken to obtain a higher frequency bias but the function ecodon "[order(-ecodon$freq),]" (assigned as highb) was used. the "-" placed before ecodon transforms the function i such a way that the resulting table from kableExtra was arranged in descending order instead starting with the largest frequencies first then going down to the smallest.
   
   The same procedure was followed to obtain the codon usage tables for Anaetococcus but instead "uco(an[[2]],index="rscu",as.data.frame=TRUE)" was assigned as acodon. kableExtra was used to produce condon tables of Anaerococcus using functions:
   
