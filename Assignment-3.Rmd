@@ -290,10 +290,21 @@ eoverep5
 eunderep5<-head(sort(ecomp5,increasing=TRUE),n=10L)
 eunderep5
 
-eoverep5[c(160165e-04, 6.629514e-05, 6.215169e-05, 6.007997e-05, 5.386480e-05,
-         5.386480e-05, 4.764963e-05, 4.764963e-05,4.764963e-05, 4.557791e-05)]
-eoverep5==aoverep5
+#E coli
+plot(eoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency")
+lines(eoverep4,type="b", col="pink")
+lines(eoverep5,type="b", col="gray")
+lines(eunderep3,type="b", col="blue")
+lines(eunderep4,type="b", col="red")
+lines(eunderep5,type="b", col="black")
 
-eunderep5==aunderep5
+#Anaerococcus
+plot(aoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency")
+lines(aoverep4,type="b", col="pink")
+lines(aoverep5,type="b", col="gray")
+lines(aunderep3,type="b", col="blue")
+lines(aunderep4,type="b", col="red")
+lines(aunderep5,type="b", col="black")
+
 
 ```
