@@ -151,6 +151,9 @@ diff2<-sw2020-sw2010
 rest.test<-t.test(diff1, diff2)
 pval <- rest.test$p.value
 pval
+rest.test2<- wilcox.test(diff1,diff2)
+pval2<-rest.test2$p.value
+pval2
 ```
 
 
