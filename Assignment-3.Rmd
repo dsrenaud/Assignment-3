@@ -117,6 +117,15 @@ boxplot(ne2005,ne2020,sw2005,sw2020, ylab="Tree circumference",main="Growth meas
         names =c("northeast 2005","northeast 2020","southwest 2005","southwest 2020"))
 ```
 
+```{r, Question10}
+#Question 10
+head(t.test(meangrowthsw,meangrowthne))
+diff1<-ne2020-ne2010
+diff2<-sw2020-sw2010
+rest.test<-t.test(diff1, diff2)
+pval <- rest.test$p.value
+pval
+```
 
 ```{r,(2) Question 4}
 #Question 4:Create a codon usage table and quantify the codon usage bias among all coding sequences. Describe
