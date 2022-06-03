@@ -220,6 +220,13 @@ highbiasa<-higha[1:6,4,drop=FALSE]
 highbiasa%>%
   kbl()%>%
   kable_paper("hover",full_width=F)
+
+#Higher bias
+hist(higha$freq,xlab = "Frequency",ylab = "Number of codons", main= "anaerococcus high bias")
+hist(highb$freq,xlab = "Frequency", ylab="Number of codons", main= "E coli high bias")
+
+#Lower bias
+
 ```
 
 
