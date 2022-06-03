@@ -108,11 +108,6 @@ sdend
 
 ```
 
-```{r,}
-
-
-
-```
 
 ```{r,Q9}
 #Question 9 Calculate the mean growth over the last 10 years at each site.
