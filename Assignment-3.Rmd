@@ -76,9 +76,6 @@ hist(dmat,xlab = "Mean values",main = "Mean of gene expressions", breaks=100)
 
 ```
 
-
-
-
 ```{r, Question 6}
 url="https://raw.githubusercontent.com/markziemann/SLE712_files/master/assessment_task3/bioinfo_asst3_part1_files/growth_data.csv"
 read.table(url,sep = ",",header=TRUE,)
@@ -223,7 +220,19 @@ boxplot((anna),(ecol), ylab="Sequence length",
 
 ```
 
+```{r,Q3}
+#Question 3: Calculate the frequency of DNA bases in the total coding sequences for both organisms. Perform the same calculation for the total protein sequence. Create bar plots for nucleotide and amino acid frequency. Describe any differences between the two organisms.
 
+
+ 
+
+
+
+
+
+
+
+```
 
 
 
