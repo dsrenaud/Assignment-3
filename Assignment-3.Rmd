@@ -149,7 +149,7 @@ pval2
                                                            
                                                             
 
-```{r, Question1}
+```{r, Q1}
 
                                                                             #PART2
 
@@ -198,7 +198,7 @@ sum(sapply(an[1:3], length))
 
 ```
 
-```{r, Question2(Part 2)}
+```{r, Q2)}
 #Question 2:
 #E. coli
 
@@ -322,7 +322,7 @@ barplot(anprot_composition, xlab = "aminoacid", ylab="propotion", main="Anaeroco
 
 
 
-```{r, Question4}
+```{r, Q5}
 #Question 4:Create a codon usage table and quantify the codon usage bias among all coding sequences. Describe
 #any differences between the two organisms with respect to their codon usage bias. Provide charts to
 #support your observations.
