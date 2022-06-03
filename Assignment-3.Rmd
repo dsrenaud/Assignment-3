@@ -146,9 +146,12 @@ pval2
 ```
 
 
-                                                            #PART2
+                                                           
                                                             
+
 ```{r, Question1}
+
+                                                                            #PART2
 
 #Question 1 Download the whole set of coding DNA sequences for E. coli and your organism of interest. How many coding sequences are present in these organisms? How much coding DNA is there in total for these two organisms? Describe any differences between the two organisms.
 
@@ -262,7 +265,58 @@ prot_composition
 barplot(prot_composition,xlab="nucleotide",ylab="frequency",main="E-coli Amino acid composition")
 
 
-                                            #
+                                            # #Anaerococcus Tetradius
+
+#DNA Bases Frequency
+
+an[[1]]
+count(an[[1]],wordsize = 1)
+
+## a     c     g     t 
+# 51728 28420 28258 50859 
+
+unlist(an)
+andna<-(unlist(an))
+
+
+dna_composition2 <- count(andna,wordsize = 1)
+barplot(dna_composition2, xlab = "nucleotide", ylab="frequency", main="Anaerococcus DNA bases")
+
+
+#Amino acid Frequency
+translate(an[[1]])
+
+anprot <- lapply(X = cds1,FUN = translate)
+
+anprot[[1]]
+
+unique(an[[2]])
+
+aa<- unique(anprot[[2]])
+
+aa <-aa[aa !="*"]
+
+count(anprot[[1]],alphabet = aa,wordsize = 1)
+# A    C    D    E    F    G    H    I    K    L    M    N    P    Q    R    S    T    V    W    Y 
+#1884 1226 1388 1692 3305 2077 1245 4259 3931 6514  949 2163 2111 1759 3009 4709 2145 2038  751 2299 
+count(anprot[[2]],alphabet = aa,wordsize = 1)
+
+# A    C    D    E    F    G    H    I    K    L    M    N    P    Q    R    S    T    V    W    Y 
+# 1274  931 1340 1702 2258 1634  751 3399 3771 4391 1008 2138 1012 1366 2514 2919 1609 1590  530 1774 
+
+
+
+unlist(anprot)
+head(unlist(anprot))
+anpro=unlist(anprot)
+anprot_composition <- count(anpro, alphabet = aa, wordsize = 1)
+
+prot_counts2 <- count(anpro, alphabet = aa, wordsize = 3)
+prot_counts2
+
+barplot(anprot_composition, xlab = "aminoacid", ylab="propotion", main="Anaerococcus composition")
+
+
 
 ```
 
@@ -392,3 +446,5 @@ lines(aunderep5,type="b", col="black")
 
 
 ```
+
+
