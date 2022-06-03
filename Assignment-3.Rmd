@@ -147,7 +147,7 @@ pval
 
 
 ```{r, Question2(Part 2)}
-#Question 2:
+#Question 2:Calculate the length of all coding sequences in these two organisms. Make a boxplot of coding sequence length in these organisms. What is the mean and median coding sequence length of these two organisms? Describe any differences between the two organisms.
 #E. coli
 
 head(summary(cds))
