@@ -22,7 +22,47 @@ Question 8: Function grep("northeast",inf$Site) to obtained the positions of nor
  Question 10: In order to find the p values firstly, we found the difference in the mean growths at both sites between 2020 and 2010. After this we used the functions t.test and wilcox.test for the differences at the two sites. After this, we found the pvalue by using the functions 
 "pval <- rest.test$p.value" where rest.test was the result of the t test and we were subsetting to find the p value. The same thing was done for the wilcox test but the varibles used in that case was rest.test2 and pval2. The value of p for the t test was 0.06229256. The p value for the wilcox test was 0.1565666.
 
+Part 2
 
 
+Question 2 : To answer this question  we used the as.numeric and the sum functions to find the length of the of all the coding sequences. For Anaerococcus the length was 3978528 and for E coli it was 2011938. To make the boxplot I used the boxplot function to compare the mean sequence length for both of these organisms. The box plot shows that the mean and median value for sequence length was higher for Anaerococcus compared to E.coli. The box plot also showed a higher interquartile range for Anaerococccus compared to E.coli.
 
-Question 2 (Part 2): To answer this question  we used the as.numeric and the sum functions to find the length of the of all the coding sequences. For anaerococcus the length was 3978528 and for E coli it was 2011938. To make the boxplot I used the boxplot function to compare the mean sequence length for both of these organisms. The box plot shows that the mean and median value for sequence length was higher for anaerococcus compared to E.coli. The box plot also showed a higher interquartile range for Anaerococccus compared to E.coli.
+Question 4: Using "uco" for the codon count to make the function "uco(cds[[2]],index="rscu",as.data.frame=TRUE)" (assigned as "ecodon"), data the codon usage of E coli was produced. by inputing "ecodon" into the function:
+
+"ecodon %>%
+  kbl() %>%
+  kable_paper("hover",full_width=F)"
+  
+  kableExtra was used to produce a codon usage table for E coli. Next, the function "ecodon[order(ecodon$freq),]" was used to arrange the data in order from the smallest frequency to the largest frequency( assigned as "lowbias"), follwed by function
+  
+  "%>%
+  kbl() %>%
+  kable_paper("hover",full_width=F)" in order to produce a codon table arranged in order of ascending frequency.The same steps were taken to obtain a higher frequency bias but the function ecodon "[order(-ecodon$freq),]" (assigned as highb) was used. the "-" placed before ecodon transforms the function i such a way that the resulting table from kableExtra was arranged in descending order instead starting with the largest frequencies first then going down to the smallest.
+  
+  The same procedure was followed to obtain the codon usage tables for Anaetococcus but instead "uco(an[[2]],index="rscu",as.data.frame=TRUE)" was assigned as acodon. kableExtra was used to produce condon tables of Anaerococcus using functions:
+  
+  "acodon %>%
+  kbl() %>%
+  kable_paper("hover",full_width=F)". Afterwards the low frequency bias and high frequency bias codon tables were produced by the functions: "alowbias<-acodon[order(acodon$freq),]" and "higha<-acodon[order(-acodon$freq),]" through kableExtra.
+
+
+Question 5:  To begin, “pro” and “anpro” from previous question was used in the formula “count (pro,alphabet= aa,wordsize=``, freq=TRUE)” and “count(anpro,alphabet= aa,wordsize=``, freq=TRUE)” respectively. These functions were applied three times for wordsizes 3,4 and 5 to obtain the corresponding sequence lengths of each organism required. These lengths were assigned as “ecomp3”, “ecomp4”, and “ecomp5”, for E coli and “acomp3”, “acomp4”, “acomp5” for Anaerococcus. Lower bias and lower bias were found using function “head(sort(acomp(),increasing=TRUE),n=10L) for Anaerococcus with “n=10L” being used to focus on 10 sequences specifically. “increasing=TRUE” was utilized to place order of frequency form the most under represented to the most over represented. The reverse was achieved with function “head(sort(acomp(),decreasing=TRUE),n=10L)” where using “decreasing=TRUE place the order of frequency from highest to lowest, allowing for the top 10 over represented protein sequence kmers to be identified. To find matching E coli the “grep”  function was utilized to manually find the position of the sequences of E coli that match those of Anaerococcus.This was achieved through the function “grep((""),rownames(ecomp()))” in which the sequence and length was inputted. These higher and lower represented sequences for length 3-5 were assigned as “eoverep()” and “eunderep()” for E coli and “aoverep()” and “aunderep” for Anaerococcus respectively. Finally, by using functions:
+ 
+
+	“plot(eoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency")
+	lines(eoverep4,type="b", col="pink")
+	lines(eoverep5,type="b", col="gray")
+	lines(eunderep3,type="b", col="blue")
+	lines(eunderep4,type="b", col="red")
+	lines(eunderep5,type="b", col="black")”
+	
+	“plot(aoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency")
+	lines(aoverep4,type="b", col="pink")
+	lines(aoverep5,type="b", col="gray")
+	lines(aunderep3,type="b", col="blue")
+	lines(aunderep4,type="b", col="red")
+	lines(aunderep5,type="b", col="black")”
+	
+A plot was created for comparison of over and underrepresented sequences of both organisms.
+By observing the graphs, it can be deduced that at length 3, Anaerococcus has a significantly greater over representation of sequence LLL than E coli. This also appears to be the case for lengths 4 and 5 where Anaerococcus also displays a higher representation. Anaroccoccus also appears to have the least expressed sequences with the frequencies lying at 0 for all lengths whereas in E coli, the lengths are appeared slightly above 0.
+
