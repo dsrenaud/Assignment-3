@@ -237,6 +237,9 @@ hist(ecodon$freq,xlab = "Frequency",ylab="Number of codons",main= "E coli")
 ```
 
 
+
+
+
 ```{r, Question 5}
 #Question 5: In the organism of interest, identify 10 protein sequence k-mers of length 3-5 which are the most over and under-represented k-mers in your organism of interest. Are these k-mers also over- and
 #under-represented in E. coli to a similar extent? Provide plots to support your observations. Why do
@@ -247,35 +250,90 @@ anpro<-unlist(anprot)
 count(pro,alphabet= aa,wordsize=3, freq=TRUE)
 
 #3
-ecomp3<-count(pro,alphabet= aa,wordsize=3, freq=TRUE)
-eoverep3<-head(sort(ecomp3,decreasing=TRUE),n=10L)
-eoverep3
-eunderep3<-head(sort(ecomp3,decreasing=TRUE),n=10L)
-eunderep3
 
+#Anaerococcus
 acomp3<-count(anpro,alphabet= aa,wordsize=3, freq=TRUE)
-acomp3
 aoverep3<-head(sort(acomp3,decreasing=TRUE),n=10L)
 aoverep3
-aunderep3<-head(sort(acomp3,decreasing=TRUE),n=10L)
+aunderep3<-head(sort(acomp3,increasing=TRUE),n=10L)
 aunderep3
+
+#E coli
+ecomp3<-count(pro,alphabet= aa,wordsize=3, freq=TRUE)
+
+grep(("LLL"),rownames(ecomp3))
+grep(("FFL"),rownames(ecomp3))
+grep(("LSL"),rownames(ecomp3))
+grep(("SLL"),rownames(ecomp3))
+grep(("SSS"),rownames(ecomp3))
+grep(("LFL"),rownames(ecomp3))
+grep(("SSL"),rownames(ecomp3))
+grep(("SLS"),rownames(ecomp3))
+grep(("LIL"),rownames(ecomp3))
+grep(("LLI"),rownames(ecomp3))
+eoverep3<-ecomp3[c(3790,1790,3910,6190,6316,3690,6310,6196,3750,3788)]
+eoverep3
+
+grep(("CDW"),rownames(ecomp3))
+grep(("HEW"),rownames(ecomp3))
+grep(("HMC"),rownames(ecomp3))
+grep(("HWG"),rownames(ecomp3))
+grep(("MCM"),rownames(ecomp3))
+grep(("MHW"),rownames(ecomp3))
+grep(("VMC"),rownames(ecomp3))
+grep(("WDP"),rownames(ecomp3))
+grep(("WHM"),rownames(ecomp3))
+grep(("WMC"),rownames(ecomp3))
+eunderep3<-ecomp3[c(459,2479,2602,2766,4031,4139,7002,7253,7331,7402)]
+eunderep3
+
+
 
 #4
 
-ecomp4<-count(pro,alphabet= aa,wordsize=4, freq=TRUE)
-eoverep4<-head(sort(ecomp4,decreasing=TRUE),n=10L)
-eoverep4
-eunderep4<-head(sort(ecomp4,increasing=TRUE),n=10L)
-eunderep4
-
+#anaerococcus
 acomp4<-count(anpro,alphabet= aa,wordsize=4, freq=TRUE)
 acomp4
 aoverep4<-head(sort(acomp4,decreasing=TRUE),n=10L)
 aoverep4
-aunderep4<-head(sort(acomp4,decreasing=TRUE),n=10L)
+aunderep4<-head(sort(acomp4,increasing=TRUE),n=10L)
 aunderep4
 
+
+
+ecomp4<-count(pro,alphabet= aa,wordsize=4, freq=TRUE)
+
+grep(("LLLL"),rownames(ecomp4))
+grep(("LLFL"),rownames(ecomp4))
+grep(("FLLL"),rownames(ecomp4))
+grep(("LFLL"),rownames(ecomp4))
+grep(("LLSL"),rownames(ecomp4))
+grep(("LLIL"),rownames(ecomp4))
+grep(("LSLS"),rownames(ecomp4))
+grep(("SSSS"),rownames(ecomp4))
+grep(("SLSL"),rownames(ecomp4))
+grep(("SLLL"),rownames(ecomp4))
+eoverep4<-ecomp4[c(75790,75690,35790,73790,75910,75750,78196,126316,123910,123790)]
+eoverep4
+
+grep(("AAAC"),rownames(ecomp4))
+grep(("AAAH"),rownames(ecomp4))
+grep(("AAAP"),rownames(ecomp4))
+grep(("AAAV"),rownames(ecomp4))
+grep(("AAAY"),rownames(ecomp4))
+grep(("AACC"),rownames(ecomp4))
+grep(("AACD"),rownames(ecomp4))
+grep(("AACE"),rownames(ecomp4))
+grep(("AACH"),rownames(ecomp4))
+grep(("AACK"),rownames(ecomp4))
+eunderep4<-ecomp4[c(2,7,13,18,20,22,23,24,27,29)]
+eunderep4
+
+
+
 #5
+
+#anaerococcus
 acomp5<-count(anpro,alphabet= aa,wordsize=5, freq=TRUE)
 acomp5
 aoverep5<-head(sort(acomp5,decreasing=TRUE),n=10L)
@@ -285,26 +343,50 @@ aunderep5
 
 ecomp5<-count(pro,alphabet= aa,wordsize=5,freq=TRUE)
 ecomp5
-eoverep5<-head(sort(ecomp5,decreasing=TRUE),n=10L)
+
+grep(("LLLLL"),rownames(ecomp5))
+grep(("FLLLL"),rownames(ecomp5))
+grep(("LLLFL"),rownames(ecomp5))
+grep(("LLFLL"),rownames(ecomp5))
+grep(("LLLIL"),rownames(ecomp5))
+grep(("SLSLS"),rownames(ecomp5))
+grep(("LFLLL"),rownames(ecomp5))
+grep(("LSFLL"),rownames(ecomp5))
+grep(("LSSSS"),rownames(ecomp5))
+grep(("SISSS"),rownames(ecomp5))
+eoverep5<-ecomp5[c(1515790,715790,1515690,1513790,1515750,2478196,1475790,1561790,1566316,2462316)]
 eoverep5
-eunderep5<-head(sort(ecomp5,increasing=TRUE),n=10L)
+
+grep(("AAAAC"),rownames(ecomp5))
+grep(("AAAAD"),rownames(ecomp5))
+grep(("AAAAF"),rownames(ecomp5))
+grep(("AAAAH"),rownames(ecomp5))
+grep(("AAAAK"),rownames(ecomp5))
+grep(("AAAAL"),rownames(ecomp5))
+grep(("AAAAN"),rownames(ecomp5))
+grep(("AAAAP"),rownames(ecomp5))
+grep(("AAAAR"),rownames(ecomp5))
+grep(("AAAAS"),rownames(ecomp5))
+eunderep5<-ecomp5[c(2,3,5,7,9,10,12,13,15,16)]
 eunderep5
 
+#Plots
+
 #E coli
-plot(eoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency")
+plot(eoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency",main="E coli")
 lines(eoverep4,type="b", col="pink")
 lines(eoverep5,type="b", col="gray")
 lines(eunderep3,type="b", col="blue")
 lines(eunderep4,type="b", col="red")
 lines(eunderep5,type="b", col="black")
 
+
 #Anaerococcus
-plot(aoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency")
+plot(aoverep3,type="b", col="yellow", xlab="codon",ylab="protein frequency", main="Anaerococcus")
 lines(aoverep4,type="b", col="pink")
 lines(aoverep5,type="b", col="gray")
 lines(aunderep3,type="b", col="blue")
 lines(aunderep4,type="b", col="red")
 lines(aunderep5,type="b", col="black")
-
 
 ```
