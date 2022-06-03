@@ -108,7 +108,14 @@ sdend
 
 ```
 
-```{r, Question9}
+```{r,}
+
+
+
+```
+
+```{r,Q9}
+#Question 9 Calculate the mean growth over the last 10 years at each site.
 mean_2010 <- mean(inf$Circumf_2010_cm)
  mean_2010
  
@@ -117,9 +124,10 @@ mean_2010 <- mean(inf$Circumf_2010_cm)
  
  Growth_rate <- mean_2020 - mean_2010 
  Growth_rate
-
+ 
+ 
 ```
-
+ 
 ```{r, question 8}
 #Question 8:Make a box plot of tree circumferance at the start and end of the study of both sites.
 
