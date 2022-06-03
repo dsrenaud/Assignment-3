@@ -223,14 +223,46 @@ boxplot((anna),(ecol), ylab="Sequence length",
 ```{r,Q3}
 #Question 3: Calculate the frequency of DNA bases in the total coding sequences for both organisms. Perform the same calculation for the total protein sequence. Create bar plots for nucleotide and amino acid frequency. Describe any differences between the two organisms.
 
+                                                        #E.coli
 
- 
+cds[[1]]
+count(cds[[1]],wordsize = 1)
+
+ecodna <- unlist(cds)
+
+ecodna
+
+count(ecodna,wordsize=1)
+#frequency of DNA bases
+##Ans:  a       c       g       t 
+ #     955768  977594 1088501  956665 
+
+ecolidna<-count(ecodna , wordsize=1)
+barplot(ecolidna,xlab="nucleotide",ylab="frequency",main="E.coli nucleotide composition")
 
 
+#protein sequence
+translate(cds[[1]])
+
+prot<-lapply(X=cds,FUN=translate)
+prot
+
+aa<-unique(prot[[2]])
+aa<-aa[aa !="*"]
+
+aa
+str(cds[[1]])
+
+unlist(prot)
+head(unlist(prot))
+pro<-unlist(prot)
+
+prot_composition<-count(pro,alphabet=aa,wordsize=1)
+prot_composition
+barplot(prot_composition,xlab="nucleotide",ylab="frequency",main="E-coli Amino acid composition")
 
 
-
-
+                                            #
 
 ```
 
