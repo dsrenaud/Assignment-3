@@ -199,16 +199,14 @@ ecodon %>%
   kable_paper("hover",full_width=F)
 
 lowbias<-ecodon[order(ecodon$freq),]
-lowbiass<-lowbias[1:6,4,drop=FALSE]
 
-lowbiass%>%
+lowbias%>%
   kbl()%>%
   kable_paper("hover",full_width=F)  
 
 highb<-ecodon[order(-ecodon$freq),]
-highbias<-highb[1:6,4,drop=FALSE]
 
-highbias%>%
+highb%>%
   kbl()%>%
   kable_paper("hover",full_width=F)  
  
@@ -221,18 +219,21 @@ acodon %>%
   kable_paper("hover",full_width=F)
 
 alowbias<-acodon[order(acodon$freq),]
-alowbiass<-alowbias[1:6,4,drop=FALSE]
 
-alowbiass%>%
+
+alowbias%>%
   kbl()%>%
   kable_paper("hover",full_width=F)  
 
 higha<-acodon[order(-acodon$freq),]
-highbiasa<-higha[1:6,4,drop=FALSE]
 
-highbiasa%>%
+
+higha%>%
   kbl()%>%
   kable_paper("hover",full_width=F)
+
+hist(acodon$freq,xlab = "Frequency",ylab="Number of codons", main= "anaerococcus")
+hist(ecodon$freq,xlab = "Frequency",ylab="Number of codons",main= "E coli")
 ```
 
 
