@@ -5,6 +5,7 @@ Question 1: To begin, the link to be used was assigned as "URL" using"<-" before
 
 Question 2: In the first step required to calculate all mean values of the columns we used the ncol function to find the number of columns present. After this we used the rowMeans function to calculate the mean of all of the columns. After this we assigned a seperate column called Mean with which the column means. After this I entered the code data [1:6,] to get the answer for just the first six rows.
 
+Question 3: Previously, we obtained the mean expression of the genes using “Mean” in three different samples. Now, we subset the “Mean” from the data frame and arranged it using function “data[order(-data$Mean),]”. Here the (-) negative sign would order the data in ascending order. As per the question, the first 10 genes with highest expression would be extracted out by first sorting and saving the data as “data[order(-data$Mean),]” and then subsetting it using [ ] in a function “revsort[1:10,]”.
 
 
 Question 4: For this question in order to find the number of genes with a mean that was greater than 10 we used the data$Mean>10 to find out which of the data which had means greater than 10 in terms of true/false statements.  After this we utilized the which function which gave us which data points had the mean greater than 10. We then attributed this to the variable dt<-data[which(data$Mean<10),] and then used the code nrow(dt) to find the number of genes with a mean of greater than 10. The number of genes with a mean value higher than 10 was 35988.
