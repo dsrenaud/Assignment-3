@@ -135,6 +135,14 @@ boxplot(ne2005,ne2020,sw2005,sw2020, ylab="Tree circumference",main="Growth meas
         names =c("northeast 2005","northeast 2020","southwest 2005","southwest 2020"))
 ```
 
+```{r, Question9}
+
+
+
+
+
+```
+
 ```{r, Question10}
 #Question 10
 head(t.test(meangrowthsw,meangrowthne))
